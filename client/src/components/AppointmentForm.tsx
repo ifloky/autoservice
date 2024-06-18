@@ -10,12 +10,12 @@ const AppointmentForm = () => {
     service: ''
   });
 
-  const handleChange = e => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       await axios.post('/api/appointments', form);
@@ -25,6 +25,7 @@ const AppointmentForm = () => {
       alert('Error creating appointment');
     }
   };
+
 
   return (
     <form onSubmit={handleSubmit}>

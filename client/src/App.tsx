@@ -7,7 +7,7 @@ import AppointmentsList from './components/AppointmentsList';
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="app">
         <Routes>
           <Route path="/" element={<Services />} />
           <Route path="/appointment" element={<AppointmentForm />} />
