@@ -10,7 +10,8 @@ const Header: React.FC = () => {
         <div className="container">
           <div className="location"><span>Локация:  </span>Минск, ул. Змитрока Бядули, 13, корп. 7</div>
           <div className="contact">
-            Позвони нам: <a href="tel:+17135232363">(713) 523-2363</a>
+            Позвони нам: <a href="tel:+17135232363"><a href="tel:+375296159090">+375 29 615-90-90</a>
+            </a>
           </div>
         </div>
       </div>

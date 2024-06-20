@@ -11,3 +11,18 @@ body {
   padding-left: 2vw;
   padding-right: 2vw;
 }
+
+.btn {
+  background: var(--main-color);
+  color: var(--text-color);
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 7px;
+  transition: background .3s ease-in-out;
+}
+
+.btn button:hover {
+  background: var(--main-background);
+}

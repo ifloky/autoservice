@@ -1,6 +1,4 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Services from './components/Services';
 import AppointmentForm from './components/AppointmentForm';
 import AppointmentsList from './components/AppointmentsList';
 import ArticleView from './Pages/Article/ArticleView';
@@ -10,6 +8,7 @@ import Page404View from './Pages/Page404/Page404View';
 
 import Header from './components/Header/Header';
 import './App.css'
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -25,6 +24,7 @@ function App() {
 
           <Route path="*" element={<Page404View />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

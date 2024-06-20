@@ -1,0 +1,36 @@
+.footer {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-top: 10px solid var(--main-color);
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+  gap: 40px;
+}
+
+.about-company {
+  width: 50%;
+}
+
+.about-company h3{
+  margin: 0;
+}
+
+.about-company p{
+  margin-bottom: 40px;
+}
+
+.contacts>div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.contacts a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.contacts div i {
+  margin-right: 20px;
+}
