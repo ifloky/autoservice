@@ -1,8 +1,10 @@
 :root {
   --main-background: #171717;
-  --main-color: red;
+  --main-color: #BE0104;
   --text-color:  #fefefe;
   --dropdown-background: #ffffff;
   --dropdown-hover-background: #dddddd;
   --dropdown-text-color: black;
+  --light-gray: #333;
+  --dark-gray: #555;
 }
