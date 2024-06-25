@@ -1,9 +1,10 @@
-import React, { useState, useEffect,useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import './main-page-styles.css';
+import FormAppointment from '../../components/FormAppointment/FormAppointment';
 
 const slides = [
-    {
+  {
     isMap: true,
     src: 'https://yandex.ru/map-widget/v1/?um=constructor%3Aec5bdb125a07e0733240716a99f6e7b8457b4347367d688a6b49c9426f75d923&amp;source=constructor',
     alt: 'Service Location',
@@ -82,7 +83,41 @@ const MainPageView: React.FC = () => {
           <button className='next' onClick={nextSlide}>&#10095;</button>
         </div>
       </section>
-      <section style={{ height: '500px', background: '#333' }}></section>
+      <section className='our-services'>
+        <div className="our-services__info">
+          <h2 className='our-services__main-text'>
+            НАШИ УСЛУГИ
+          </h2>
+          <p className="our-services__sub-text">
+            Всё предельно открыто и честно
+          </p>
+          <ul>
+            <div>
+              <li className="our-services__item">ТЕХНИЧЕСКОЕ ОБСЛУЖИВАНИЕ И РЕМОНТ</li>
+              <li className="our-services__item">КОМПЬЮТЕРНАЯ ДИАГНОСТИКА</li>
+              <li className="our-services__item">РЕМОНТ ДВИГАТЕЛЕЙ</li>
+              <li className="our-services__item">РЕМОНТ АКПП, МКПП</li>
+              <li className="our-services__item">РЕМОНТ СТАРТЕРОВ, ГЕНЕРАТОРОВ</li>
+              <li className="our-services__item">РЕМОНТ ЭЛЕКТРОННЫХ БЛОКОВ</li>
+              <li className="our-services__item">ЧИСТКА ИНЖЕКТОРОВ</li>
+              <li className="our-services__item">РЕМОНТ И ЗАПРАВКА КОНДИЦИОНЕРОВ</li>
+            </div>
+            <div>
+              <li className="our-services__item">СХОД-РАЗВАЛ 3D</li>
+              <li className="our-services__item">ШИНОМОНТАЖ</li>
+              <li className="our-services__item">КУЗОВНОЙ РЕМОНТ ЛЮБОЙ СЛОЖНОСТИ</li>
+              <li className="our-services__item">БЕСПОКРАСОЧНОЕ УДАЛЕНИЕ ВМЯТИН</li>
+              <li className="our-services__item">ЗАМЕНА СТЕКОЛ</li>
+              <li className="our-services__item">ХИМЧИСТКА, ПОЛИРОВКА, НАНОПОКРЫТИЕ</li>
+              <li className="our-services__item">ЗАПЧАСТИ (ОРИГИНАЛ, АНАЛОГИ)</li>
+              <li className="our-services__item">ЭВАКУАТОР</li>
+            </div>
+          </ul>
+        </div>
+        <div className="out-services__form-appointment">
+          <FormAppointment />
+        </div>
+      </section>
       <section style={{ height: '500px', background: '#555' }}></section>
       <section style={{ height: '500px', background: '#777' }}></section>
     </>

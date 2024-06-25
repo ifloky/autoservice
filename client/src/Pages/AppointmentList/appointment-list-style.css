@@ -1,0 +1,43 @@
+/* AppointmentList.css */
+.appointment-list {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--main-background);
+  border-radius: 8px;
+}
+
+.appointment-list__item {
+  background: var(--text-color);
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  list-style: none;
+  position: relative;
+}
+
+.appointment-list__item h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+.appointment-list__item p {
+  margin: 5px 0;
+  color: var(--dark-gray);
+}
+
+.appointment-list__delete-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  transition: background-color .3s ease-in-out;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  font-size: 10px;
+}
+
+.appointment-list__delete-btn:hover {
+  background-color: var(--dark-gray);
+}

@@ -89,3 +89,26 @@
   width: 100%;
   height: 100%;
 }
+
+.our-services {
+  display: flex;
+  padding: 20px 60px
+}
+
+.our-services__info {
+  width: 50%;
+}
+
+.out-services__form-appointment {
+  width: 40%;
+}
+
+.out-services__form-appointment h2{
+  text-align: center;
+}
+
+.out-services__form-appointment p {
+  text-align: center;
+  margin-top: -15px;
+  color: var(--dropdown-hover-background);
+}

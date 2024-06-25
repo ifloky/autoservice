@@ -5,10 +5,7 @@ const Appointment = require('../models/Appointment');
 router.post('/', async (req, res) => {
   const appointment = new Appointment({
     name: req.body.name,
-    email: req.body.email,
     phone: req.body.phone,
-    date: req.body.date,
-    service: req.body.service
   });
 
   try {
@@ -25,6 +22,18 @@ router.get('/', async (req, res) => {
     res.json(appointments);
   } catch (err) {
     res.status(500).json({ message: err.message });
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const appointment = await Appointment.findByIdAndDelete(req.params.id);
+    if (!appointment) {
+      return res.status(404).json({ message: 'Appointment not found' });
+    }
+    res.status(200).json({ message: 'Appointment deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
 
