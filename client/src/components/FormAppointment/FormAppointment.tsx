@@ -28,7 +28,7 @@ const FormAppointment: React.FC = () => {
 
   return (
     <div className="form-container">
-      <h2>Записаться на ремонт</h2>
+      <h2>ЗАПИСАТЬСЯ НА РЕМОНТ</h2>
       <p>и получить в подарок диагностику а/м по 45 параметрам с выдачей чек-листа на руки</p>
       <form>
         <div>
@@ -51,7 +51,7 @@ const FormAppointment: React.FC = () => {
             onChange={(e) => setPhone(e.target.value)}
           />
         </div>
-        <button type="button" onClick={handleSubmitAppointment}>
+        <button type="button" className='btn' onClick={handleSubmitAppointment}>
           Записаться на ремонт
         </button>
       </form>

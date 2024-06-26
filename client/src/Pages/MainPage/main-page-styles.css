@@ -101,14 +101,87 @@
 
 .out-services__form-appointment {
   width: 40%;
+  padding-left: 40px;
 }
 
 .out-services__form-appointment h2{
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .out-services__form-appointment p {
   text-align: center;
   margin-top: -15px;
   color: var(--dropdown-hover-background);
+}
+
+.out-services__form-appointment .btn:hover {
+  background-color: var(--dark-gray);
+  transition: all .3s ease-in-out;
+  height: 109%;
+  font-size: 115%;
+}
+
+.our-services__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.our-services__info ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.our-services__info li {
+  width: 50%; 
+  list-style: none;
+  width: 230px;
+  margin-left: 15px;
+}
+
+.our-services__info li::before {
+  content: '\2713';
+  color: var(--main-color);
+  margin-right: 10px;
+  margin-left: -22px;
+}
+
+.our-prices {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.prices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 5vw;
+  gap: 10px;
+}
+
+.price-item {
+  width: 14vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--dropdown-hover-background);
+  color: var(--dark-gray);
+  font-weight: 600;
+  text-decoration: none;
+  height: 150px;
+  padding: 10px;
+}
+
+.price-item img {
+  height: 50%;
+}
+
+.price-item p {
+  margin: 0;
+  height: 20%;
 }

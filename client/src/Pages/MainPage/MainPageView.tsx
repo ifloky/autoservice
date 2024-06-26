@@ -2,19 +2,110 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import './main-page-styles.css';
 import FormAppointment from '../../components/FormAppointment/FormAppointment';
+import { Link } from 'react-router-dom';
 
 const slides = [
   {
     isMap: true,
-    src: 'https://yandex.ru/map-widget/v1/?um=constructor%3Aec5bdb125a07e0733240716a99f6e7b8457b4347367d688a6b49c9426f75d923&amp;source=constructor',
+    src: 'https://yandex.ru/map-widget/v1/?um=constructor%3A8ef65aa39d5309106de0085aeeafa938b6f1fa23b31455903e1cc4f38757ca63&amp;source=constructor',
     alt: 'Service Location',
     title: 'Давай к нам',
     text: 'Сделаем все вовремя и качественно'
   },
-  { src: './img/engine.jpg', alt: 'Car 1', title: "Ремонт двигателя", text: 'Качественные запчасти и толковые мотористы восстановят всё' },
-  { src: './img/suspension.jpg', alt: 'Car 2', title: 'Ремонт ходовой', text: 'Если что то стучит - приезжайте посмотрим, захотите - исправим' },
-  { src: './img/electric.png', alt: 'Car 3', title: 'Ремонт электрики', text: 'Электрики с опытом всегда рады новым вызовам' },
+  {
+    src: './img/engine.jpg',
+    alt: 'Car 1',
+    title: "Ремонт двигателя",
+    text: 'Качественные запчасти и толковые мотористы восстановят всё',
+    link: './engine'
+  },
+  {
+    src: './img/suspension.jpg',
+    alt: 'Car 2',
+    title: 'Ремонт ходовой',
+    text: 'Если что то стучит - приезжайте посмотрим, захотите - исправим',
+    link: './suspension'
+  },
+  {
+    src: './img/electric.png',
+    alt: 'Car 3',
+    title: 'Ремонт электрики',
+    text: 'Электрики с опытом всегда рады новым вызовам',
+    link: './electric'
+  },
 ];
+
+const priceLink = [
+  {
+    img: './img/price img/priceIcon1.svg',
+    link: '/prices/servicework',
+    textLink: 'Общие работы'
+  },
+  {
+    img: './img/price img/priceIcon2.svg',
+    link: '/prices/frontsuspension',
+    textLink: 'Передняя подвеска'
+  },
+  {
+    img: './img/price img/priceIcon3.svg',
+    link: '/prices/rearsuspension',
+    textLink: 'Задняя подвеска'
+  },
+  {
+    img: './img/price img/priceIcon4.svg',
+    link: '/prices/break',
+    textLink: 'Тормозная система'
+  },
+  {
+    img: './img/price img/priceIcon5.svg',
+    link: '/prices/steering',
+    textLink: 'Рулевое управление'
+  },
+  {
+    img: './img/price img/priceIcon6.svg',
+    link: '/prices/transmission',
+    textLink: 'Трансмиссия'
+  },
+  {
+    img: './img/price img/priceIcon8.svg',
+    link: '/prices/engine',
+    textLink: 'Двигатель'
+  },
+  {
+    img: './img/price img/priceIcon9.svg',
+    link: '/prices/electric',
+    textLink: 'Электрика'
+  },
+  {
+    img: './img/price img/priceIcon10.svg',
+    link: '/prices/coolantsystem',
+    textLink: 'Система охлаждения'
+  },
+  {
+    img: './img/price img/priceIcon11.svg',
+    link: '/prices/oilsystem',
+    textLink: 'Маслянная система'
+  },
+]
+
+const services = [
+  "ТЕХНИЧЕСКОЕ ОБСЛУЖИВАНИЕ И РЕМОНТ",
+  "КОМПЬЮТЕРНАЯ ДИАГНОСТИКА",
+  "РЕМОНТ ДВИГАТЕЛЕЙ",
+  "РЕМОНТ АКПП, МКПП",
+  "РЕМОНТ СТАРТЕРОВ, ГЕНЕРАТОРОВ",
+  "РЕМОНТ ЭЛЕКТРОННЫХ БЛОКОВ",
+  "ЧИСТКА ИНЖЕКТОРОВ",
+  "РЕМОНТ И ЗАПРАВКА КОНДИЦИОНЕРОВ",
+  "СХОД-РАЗВАЛ 3D",
+  "ШИНОМОНТАЖ",
+  "КУЗОВНОЙ РЕМОНТ ЛЮБОЙ СЛОЖНОСТИ",
+  "БЕСПОКРАСОЧНОЕ УДАЛЕНИЕ ВМЯТИН",
+  "ЗАМЕНА СТЕКОЛ",
+  "ХИМЧИСТКА, ПОЛИРОВКА, НАНОПОКРЫТИЕ",
+  "ЗАПЧАСТИ (ОРИГИНАЛ, АНАЛОГИ)",
+  "ЭВАКУАТОР"
+]
 
 
 const MainPageView: React.FC = () => {
@@ -54,6 +145,14 @@ const MainPageView: React.FC = () => {
     startSlideInterval();
   };
 
+  const openMapLink = () => {
+    window.open('https://yandex.ru/map-widget/v1/?um=constructor%3A8ef65aa39d5309106de0085aeeafa938b6f1fa23b31455903e1cc4f38757ca63&amp;source=constructor', '_blank');
+  };
+
+  const openLink = (link: string | undefined) => {
+    window.open(link, '_self');
+  };
+
   return (
     <>
       <Helmet>
@@ -67,7 +166,12 @@ const MainPageView: React.FC = () => {
             <div key={index} className={`slide ${index === currentSlide ? 'active' : ''}`}>
               {slide.isMap ? (
                 <div className='map-container'>
-                  <iframe src={slide.src} title={slide.alt} frameBorder='0' />
+                  <iframe
+                    src={slide.src}
+                    title={slide.alt}
+                    width="100%"
+                    height="350"
+                  ></iframe>
                 </div>
               ) : (
                 <img src={slide.src} alt={slide.alt} />
@@ -75,7 +179,7 @@ const MainPageView: React.FC = () => {
               <div className='slide-text'>
                 <h2>{slide.title}</h2>
                 <p>{slide.text}</p>
-                <button className='btn'>{slide.isMap ? 'Посмотреть на карте' : 'Узнать больше'}</button>
+                <button className='btn' onClick={slide.isMap ? openMapLink : () => openLink(slide.link)}>{slide.isMap ? 'Посмотреть на карте' : 'Узнать больше'}</button>
               </div>
             </div>
           ))}
@@ -92,34 +196,28 @@ const MainPageView: React.FC = () => {
             Всё предельно открыто и честно
           </p>
           <ul>
-            <div>
-              <li className="our-services__item">ТЕХНИЧЕСКОЕ ОБСЛУЖИВАНИЕ И РЕМОНТ</li>
-              <li className="our-services__item">КОМПЬЮТЕРНАЯ ДИАГНОСТИКА</li>
-              <li className="our-services__item">РЕМОНТ ДВИГАТЕЛЕЙ</li>
-              <li className="our-services__item">РЕМОНТ АКПП, МКПП</li>
-              <li className="our-services__item">РЕМОНТ СТАРТЕРОВ, ГЕНЕРАТОРОВ</li>
-              <li className="our-services__item">РЕМОНТ ЭЛЕКТРОННЫХ БЛОКОВ</li>
-              <li className="our-services__item">ЧИСТКА ИНЖЕКТОРОВ</li>
-              <li className="our-services__item">РЕМОНТ И ЗАПРАВКА КОНДИЦИОНЕРОВ</li>
-            </div>
-            <div>
-              <li className="our-services__item">СХОД-РАЗВАЛ 3D</li>
-              <li className="our-services__item">ШИНОМОНТАЖ</li>
-              <li className="our-services__item">КУЗОВНОЙ РЕМОНТ ЛЮБОЙ СЛОЖНОСТИ</li>
-              <li className="our-services__item">БЕСПОКРАСОЧНОЕ УДАЛЕНИЕ ВМЯТИН</li>
-              <li className="our-services__item">ЗАМЕНА СТЕКОЛ</li>
-              <li className="our-services__item">ХИМЧИСТКА, ПОЛИРОВКА, НАНОПОКРЫТИЕ</li>
-              <li className="our-services__item">ЗАПЧАСТИ (ОРИГИНАЛ, АНАЛОГИ)</li>
-              <li className="our-services__item">ЭВАКУАТОР</li>
-            </div>
+            {services.map((service) => (
+              <li className="our-services__item">{service}</li>
+            ))}
           </ul>
         </div>
         <div className="out-services__form-appointment">
           <FormAppointment />
         </div>
       </section>
-      <section style={{ height: '500px', background: '#555' }}></section>
-      <section style={{ height: '500px', background: '#777' }}></section>
+      <section className='container our-prices' style={{ background: '#555' }}>
+        <h3 className='our-prices__head-text'>СТОИМОСТЬ РАБОТ</h3>
+        <div className='prices'>
+          {priceLink.map((priceItem) => (
+            <Link to={priceItem.link} className='price-item'>
+              <img src={priceItem.img} alt="priceImg" />
+              <p>{priceItem.textLink}</p>
+            </Link>
+          ))}
+        </div>
+        <p className='our-sub-text'>Подберём интересующий вас ремонт автомобиля по адекватной стоимости</p>
+      </section>
+      <section style={{ height: '500px', background: '#111' }}></section>
     </>
   );
 };
