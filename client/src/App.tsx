@@ -8,6 +8,7 @@ import Header from './components/Header/Header';
 import './App.css'
 import Footer from './components/Footer/Footer';
 import AppointmentList from './Pages/AppointmentList/AppointmentList';
+import About from './Pages/About/About';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/articles" element={<ArticlesView />} />
             <Route path="/articles/:id" element={<ArticleView />} />
             <Route path='/appointment' element={<AppointmentList />} />
+            <Route path='/about' element={<About />} />
             <Route path="*" element={<Page404View />} />
           </Routes>
         </main>
