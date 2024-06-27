@@ -4,6 +4,7 @@ import './main-page-styles.css';
 import FormAppointment from '../../components/FormAppointment/FormAppointment';
 import { Link } from 'react-router-dom';
 
+
 const slides = [
   {
     isMap: true,
@@ -35,59 +36,6 @@ const slides = [
   },
 ];
 
-const priceLink = [
-  {
-    img: './img/price img/priceIcon1.svg',
-    link: '/prices/servicework',
-    textLink: 'Общие работы'
-  },
-  {
-    img: './img/price img/priceIcon2.svg',
-    link: '/prices/frontsuspension',
-    textLink: 'Передняя подвеска'
-  },
-  {
-    img: './img/price img/priceIcon3.svg',
-    link: '/prices/rearsuspension',
-    textLink: 'Задняя подвеска'
-  },
-  {
-    img: './img/price img/priceIcon4.svg',
-    link: '/prices/break',
-    textLink: 'Тормозная система'
-  },
-  {
-    img: './img/price img/priceIcon5.svg',
-    link: '/prices/steering',
-    textLink: 'Рулевое управление'
-  },
-  {
-    img: './img/price img/priceIcon6.svg',
-    link: '/prices/transmission',
-    textLink: 'Трансмиссия'
-  },
-  {
-    img: './img/price img/priceIcon8.svg',
-    link: '/prices/engine',
-    textLink: 'Двигатель'
-  },
-  {
-    img: './img/price img/priceIcon9.svg',
-    link: '/prices/electric',
-    textLink: 'Электрика'
-  },
-  {
-    img: './img/price img/priceIcon10.svg',
-    link: '/prices/coolantsystem',
-    textLink: 'Система охлаждения'
-  },
-  {
-    img: './img/price img/priceIcon11.svg',
-    link: '/prices/oilsystem',
-    textLink: 'Маслянная система'
-  },
-]
-
 const services = [
   "ТЕХНИЧЕСКОЕ ОБСЛУЖИВАНИЕ И РЕМОНТ",
   "КОМПЬЮТЕРНАЯ ДИАГНОСТИКА",
@@ -108,9 +56,94 @@ const services = [
 ]
 
 
+const priceLink = [
+  {
+    img: './img/price img/priceIcon1.svg',
+    img2: './img/price img/priceIcon1-black.svg',
+    link: '/prices/servicework',
+    textLink: 'Общие работы'
+  },
+  {
+    img: './img/price img/priceIcon2.svg',
+    img2: './img/price img/priceIcon2-black.svg',
+    link: '/prices/frontsuspension',
+    textLink: 'Передняя подвеска'
+  },
+  {
+    img: './img/price img/priceIcon3.svg',
+    img2: './img/price img/priceIcon3-black.svg',
+    link: '/prices/rearsuspension',
+    textLink: 'Задняя подвеска'
+  },
+  {
+    img: './img/price img/priceIcon4.svg',
+    img2: './img/price img/priceIcon4-black.svg',
+    link: '/prices/break',
+    textLink: 'Тормозная система'
+  },
+  {
+    img: './img/price img/priceIcon5.svg',
+    img2: './img/price img/priceIcon5-black.svg',
+    link: '/prices/steering',
+    textLink: 'Рулевое управление'
+  },
+  {
+    img: './img/price img/priceIcon6.svg',
+    img2: './img/price img/priceIcon6-black.svg',
+    link: '/prices/transmission',
+    textLink: 'Трансмиссия'
+  },
+  {
+    img: './img/price img/priceIcon8.svg',
+    img2: './img/price img/priceIcon8-black.svg',
+    link: '/prices/engine',
+    textLink: 'Двигатель'
+  },
+  {
+    img: './img/price img/priceIcon9.svg',
+    img2: './img/price img/priceIcon9-black.svg',
+    link: '/prices/electric',
+    textLink: 'Электрика'
+  },
+  {
+    img: './img/price img/priceIcon10.svg',
+    img2: './img/price img/priceIcon10-black.svg',
+    link: '/prices/coolantsystem',
+    textLink: 'Система охлаждения'
+  },
+  {
+    img: './img/price img/priceIcon11.svg',
+    img2: './img/price img/priceIcon11-black.svg',
+    link: '/prices/oilsystem',
+    textLink: 'Маслянная система'
+  },
+]
+
+const newsItems = [
+  {
+    date: '14.06.2024',
+    title: 'Диагностика и обслуживание',
+    description: 'Современная специализированная компания, имеющая огромный рабочий опыт по выбору и замене оригинальных, надежных запасных частей...',
+    link: '/news/diagnostika'
+  },
+  {
+    date: '04.06.2024',
+    title: 'Замена, промывка инжектора',
+    description: 'Инжектор в автомобиле призван выполнять свою основную задачу по экономичному впрыску бензина в двигатель. При эксплуатации ТС происходит загрязнение топливной системы...',
+    link: '/news/injector'
+  },
+  {
+    date: '14.05.2024',
+    title: 'Тормозная система: безопасность превыше всего',
+    description: 'Неисправная тормозная система может привести к серьезным последствиям. Регулярная проверка и замена изношенных частей обеспечат вашу безопасность на дороге и предотвратят возможные аварии...',
+    link: '/news/brakes'
+  }
+];
+
 const MainPageView: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 
   const startSlideInterval = () => {
     slideIntervalRef.current = setInterval(() => {
@@ -197,7 +230,7 @@ const MainPageView: React.FC = () => {
           </p>
           <ul>
             {services.map((service) => (
-              <li className="our-services__item">{service}</li>
+              <li className="our-services__item" key={service}>{service}</li>
             ))}
           </ul>
         </div>
@@ -208,16 +241,37 @@ const MainPageView: React.FC = () => {
       <section className='container our-prices' style={{ background: '#555' }}>
         <h3 className='our-prices__head-text'>СТОИМОСТЬ РАБОТ</h3>
         <div className='prices'>
-          {priceLink.map((priceItem) => (
-            <Link to={priceItem.link} className='price-item'>
-              <img src={priceItem.img} alt="priceImg" />
+          {priceLink.map((priceItem, index) => (
+            <Link
+              to={priceItem.link}
+              className='price-item'
+              key={index}
+              onMouseEnter={() => setHoverIndex(index)}
+              onMouseLeave={() => setHoverIndex(null)}
+            >
+              <img src={hoverIndex === index ? priceItem.img : priceItem.img2} alt="priceImg" />
               <p>{priceItem.textLink}</p>
             </Link>
           ))}
         </div>
-        <p className='our-sub-text'>Подберём интересующий вас ремонт автомобиля по адекватной стоимости</p>
+        <p className='our-sub-text'>Выполним ремонт автомобиля по адекватной стоимости</p>
       </section>
-      <section style={{ height: '500px', background: '#111' }}></section>
+      <section style={{ background: '#111' }} className='news-section'>
+        <h2 className='news-section__title'>НАШИ НОВОСТИ</h2>
+        <div className='news-section__content'>
+          {newsItems.map((item, index) => (
+            <div key={index} className='news-item'>
+              <h3 className='news-item__title'>{item.title}</h3>
+              <p className='news-item__description'>{item.description}</p>
+              <Link to={item.link} className='news-item__link'>Читать далее...</Link>
+              <p className='news-item__date'>{item.date}</p>
+            </div>
+          ))}
+        </div>
+        <div className='news-section__more'>
+          <Link to='/news' className='news-section__more-link btn'>СМОТРЕТЬ ВСЕ</Link>
+        </div>
+      </section >
     </>
   );
 };

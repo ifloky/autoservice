@@ -24,7 +24,7 @@
 }
 
 .btn:hover {
-  background-color: var(--main-background);
+  background-color: var(--light-gray);
 }
 
 main {

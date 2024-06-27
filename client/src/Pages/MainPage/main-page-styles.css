@@ -169,12 +169,19 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background-color: var(--dropdown-hover-background);
+  background-color: var(--dropdown-background);
   color: var(--dark-gray);
   font-weight: 600;
   text-decoration: none;
   height: 150px;
   padding: 10px;
+  transition: all .3s ease-in-out;
+}
+
+.price-item:hover {
+  background-color: var(--dark-gray);
+  transform: scale(1.02);
+  color: var(--text-color);
 }
 
 .price-item img {
@@ -184,4 +191,75 @@
 .price-item p {
   margin: 0;
   height: 20%;
+}
+
+
+.news-section {
+  background-color: var(--main-background);
+  color: var(--text-color);
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.news-section__title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.news-section__content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.news-item {
+  background-color: var(--dropdown-background);
+  color: var(--dark-gray);
+  padding: 20px;
+  padding-bottom: 30px;
+  margin: 10px;
+  border-radius: 8px;
+  flex: 1 1 30%;
+  box-sizing: border-box;
+  min-width: 250px;
+  position: relative;
+}
+
+.news-item__title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.news-item__description {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.news-item__link {
+  font-size: 0.9rem;
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+.news-item__link:hover {
+  text-decoration: underline;
+}
+
+.news-section__more {
+  margin-top: 20px;
+}
+
+.news-section__more-link {
+  font-size: 1rem;
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+.news-item__date {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  position: absolute;
+  right: 10px;
+  bottom: -5px;
+  color: var(--light-gray);
 }
