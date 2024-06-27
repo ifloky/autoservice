@@ -1,6 +1,7 @@
 import React from 'react';
 import './header-style.css';
 import { Link } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 
 const Header: React.FC = () => {
   return (
@@ -34,7 +35,14 @@ const Header: React.FC = () => {
             <li><Link to="/work-performed">Услуги</Link></li>
             <li><Link to="/contacts">Контакты</Link></li>
           </ul>
-          <Link to="#write-book" className="book-appointment">Записать на прием</Link>
+          <ScrollLink
+            to="form-appointment"
+            smooth={true}
+            duration={500}
+            className="book-appointment"
+          >
+            Записать на прием
+          </ScrollLink>
         </div>
       </nav>
     </header >

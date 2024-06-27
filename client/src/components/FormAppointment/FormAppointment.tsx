@@ -27,7 +27,7 @@ const FormAppointment: React.FC = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container" id='form-appointment'>
       <h2>ЗАПИСАТЬСЯ НА РЕМОНТ</h2>
       <p>и получить в подарок диагностику а/м по 45 параметрам с выдачей чек-листа на руки</p>
       <form>
