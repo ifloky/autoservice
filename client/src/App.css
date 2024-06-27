@@ -20,7 +20,8 @@
   cursor: pointer;
   font-size: 1em;
   border-radius: 7px;
-  transition: background .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  text-decoration: none;
 }
 
 .btn:hover {

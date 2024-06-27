@@ -124,19 +124,19 @@ const newsItems = [
     date: '14.06.2024',
     title: 'Диагностика и обслуживание',
     description: 'Современная специализированная компания, имеющая огромный рабочий опыт по выбору и замене оригинальных, надежных запасных частей...',
-    link: '/news/diagnostika'
+    link: '/articles/diagnostika'
   },
   {
     date: '04.06.2024',
     title: 'Замена, промывка инжектора',
     description: 'Инжектор в автомобиле призван выполнять свою основную задачу по экономичному впрыску бензина в двигатель. При эксплуатации ТС происходит загрязнение топливной системы...',
-    link: '/news/injector'
+    link: '/articles/injector'
   },
   {
     date: '14.05.2024',
     title: 'Тормозная система: безопасность превыше всего',
     description: 'Неисправная тормозная система может привести к серьезным последствиям. Регулярная проверка и замена изношенных частей обеспечат вашу безопасность на дороге и предотвратят возможные аварии...',
-    link: '/news/brakes'
+    link: '/articles/brakes'
   }
 ];
 
@@ -269,7 +269,7 @@ const MainPageView: React.FC = () => {
           ))}
         </div>
         <div className='news-section__more'>
-          <Link to='/news' className='news-section__more-link btn'>СМОТРЕТЬ ВСЕ</Link>
+          <Link to='/articles' className='news-section__more-link btn'>СМОТРЕТЬ ВСЕ</Link>
         </div>
       </section >
     </>
