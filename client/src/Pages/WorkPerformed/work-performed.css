@@ -1,0 +1,42 @@
+
+.price-list-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-price-list {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#price-list {
+    margin: 20px 0;
+}
+
+#price-list h2 {
+    margin-bottom: 20px;
+}
+
+#price-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#price-list th, #price-list td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+#price-list th {
+    background: #333;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    header nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+}

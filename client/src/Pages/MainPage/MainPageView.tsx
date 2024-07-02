@@ -55,66 +55,65 @@ const services = [
   "ЭВАКУАТОР"
 ]
 
-
 const priceLink = [
   {
     img: './img/price img/priceIcon1.svg',
     img2: './img/price img/priceIcon1-black.svg',
-    link: '/prices/servicework',
+    link: 'servicework',
     textLink: 'Общие работы'
   },
   {
     img: './img/price img/priceIcon2.svg',
     img2: './img/price img/priceIcon2-black.svg',
-    link: '/prices/frontsuspension',
+    link: 'frontsuspension',
     textLink: 'Передняя подвеска'
   },
   {
     img: './img/price img/priceIcon3.svg',
     img2: './img/price img/priceIcon3-black.svg',
-    link: '/prices/rearsuspension',
+    link: 'rearsuspension',
     textLink: 'Задняя подвеска'
   },
   {
     img: './img/price img/priceIcon4.svg',
     img2: './img/price img/priceIcon4-black.svg',
-    link: '/prices/break',
+    link: 'break',
     textLink: 'Тормозная система'
   },
   {
     img: './img/price img/priceIcon5.svg',
     img2: './img/price img/priceIcon5-black.svg',
-    link: '/prices/steering',
+    link: 'steering',
     textLink: 'Рулевое управление'
   },
   {
     img: './img/price img/priceIcon6.svg',
     img2: './img/price img/priceIcon6-black.svg',
-    link: '/prices/transmission',
+    link: 'transmission',
     textLink: 'Трансмиссия'
   },
   {
     img: './img/price img/priceIcon8.svg',
     img2: './img/price img/priceIcon8-black.svg',
-    link: '/prices/engine',
+    link: 'engine',
     textLink: 'Двигатель'
   },
   {
     img: './img/price img/priceIcon9.svg',
     img2: './img/price img/priceIcon9-black.svg',
-    link: '/prices/electric',
+    link: 'electric',
     textLink: 'Электрика'
   },
   {
     img: './img/price img/priceIcon10.svg',
     img2: './img/price img/priceIcon10-black.svg',
-    link: '/prices/coolantsystem',
+    link: 'coolantsystem',
     textLink: 'Система охлаждения'
   },
   {
     img: './img/price img/priceIcon11.svg',
     img2: './img/price img/priceIcon11-black.svg',
-    link: '/prices/oilsystem',
+    link: 'oilsystem',
     textLink: 'Маслянная система'
   },
 ]
@@ -243,7 +242,7 @@ const MainPageView: React.FC = () => {
         <div className='prices'>
           {priceLink.map((priceItem, index) => (
             <Link
-              to={priceItem.link}
+              to={`work-performed#` + priceItem.link}
               className='price-item'
               key={index}
               onMouseEnter={() => setHoverIndex(index)}

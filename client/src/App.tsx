@@ -9,6 +9,7 @@ import './App.css'
 import Footer from './components/Footer/Footer';
 import AppointmentList from './Pages/AppointmentList/AppointmentList';
 import About from './Pages/About/About';
+import { WorkPerformed } from './Pages/WorkPerformed/WorkPerformed';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/articles/:id" element={<ArticleView />} />
             <Route path='/appointment' element={<AppointmentList />} />
             <Route path='/about' element={<About />} />
+            <Route path='/work-performed' element={<WorkPerformed />} />
             <Route path="*" element={<Page404View />} />
           </Routes>
         </main>
