@@ -43,7 +43,6 @@
 
 .logo a{
   display: flex;
-  flex-direction: column;
   color: var(--text-color);
   text-decoration: none;
 }
@@ -54,7 +53,8 @@
 }
 
 .logo-subtext {
-  font-size: 10px;
+  font-size: 18px;
+  margin-right: 10px;
   font-weight: lighter;
 }
 

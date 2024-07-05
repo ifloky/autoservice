@@ -9,9 +9,9 @@ const Header: React.FC = () => {
 
       <div className="top-bar">
         <div className="container">
-          <div className="location"><span>Локация:  </span>Минск, ул. Змитрока Бядули, 13, корп. 7</div>
+          <div className="location"><span>Локация:  </span>Минск, ул. Кальварийская ул., 33, корп. 14</div>
           <div className="contact">
-            Позвони нам: <a href="tel:+17135232363"><a href="tel:+375296159090">+375 29 615-90-90</a>
+            Позвони нам: <a href="tel:+17135232363"><a href="tel:+375296159090">+375 33 324-84-44</a>
             </a>
           </div>
         </div>
@@ -20,17 +20,14 @@ const Header: React.FC = () => {
         <div className="container">
           <div className="logo">
             <Link to="/">
-              <span className="logo-subtext"></span>
-              <span className="logo-text">Fast Motors</span>
+              <span className="logo-subtext"><i className="fas fa-wrench"></i></span>
+              <span className="logo-text">Allucard</span>
             </Link>
           </div>
           <ul className="nav-links">
             <li><Link to="/about">О нас</Link></li>
             <li className="dropdown">
               <div><Link to="/services">Наши сервисы</Link></div>
-              <div className="dropdown-content">
-                <Link to="/service1">Бядули 13</Link>
-              </div>
             </li>
             <li><Link to="/work-performed">Услуги</Link></li>
             <li><Link to="/contacts">Контакты</Link></li>
