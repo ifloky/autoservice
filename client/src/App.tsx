@@ -3,6 +3,7 @@ import ArticleView from './Pages/Article/ArticleView';
 import ArticlesView from './Pages/Articles/ArticlesView';
 import MainPageView from './Pages/MainPage/MainPageView';
 import Page404View from './Pages/Page404/Page404View';
+import { Contacts } from "./Pages/Contacts/Contacts";
 
 import Header from './components/Header/Header';
 import './App.css'
@@ -24,6 +25,7 @@ function App() {
             <Route path='/appointment' element={<AppointmentList />} />
             <Route path='/about' element={<About />} />
             <Route path='/work-performed' element={<WorkPerformed />} />
+            <Route path='/contacts' element={<Contacts />} />
             <Route path="*" element={<Page404View />} />
           </Routes>
         </main>

@@ -17,18 +17,18 @@ const Footer: React.FC = () => {
         </div>
         <div className="addres">
           <i className="fas fa-map-marker-alt"></i>
-          <p>Минск, ул. Змитрока Бядули, 13, корп. 7</p>
+          <p>Минск, ул. Кальварийская ул., 33, корп. 14</p>
         </div>
         <div className="worked-time">
           <i className="fa-regular fa-clock"></i>
-          <p>БЕЗ ВЫХОДНЫХ с 8-30 до 20-00 </p>
+          <p>БЕЗ ВЫХОДНЫХ с 9-00 до 20-00 </p>
         </div>
         <div className="transport">
           <i className="fa-solid fa-bus"></i>
           <div>
-            <p>10 минуты ходьбы до ст.м. "Площадь победы"</p>
-            <p>Трамваи: 1, 3, 4, 6, 7</p>
-            <p>Автобусы: 18, 19, 26, 37, 57</p>
+            <p>5 минуты ходьбы до ст.м. "Молодежная"</p>
+            <p>Троллейбусы: 4, 7, 9, 13, 14, 44, 58</p>
+            <p>Автобусы: 40, 78, 163</p>
           </div>
         </div>
       </div>
