@@ -4,37 +4,7 @@ import './main-page-styles.css';
 import FormAppointment from '../../components/FormAppointment/FormAppointment';
 import { Link } from 'react-router-dom';
 
-
-const slides = [
-  {
-    isMap: true,
-    src: 'https://yandex.ru/map-widget/v1/?um=constructor%3A8ef65aa39d5309106de0085aeeafa938b6f1fa23b31455903e1cc4f38757ca63&amp;source=constructor',
-    alt: 'Service Location',
-    title: 'Давай к нам',
-    text: 'Сделаем все вовремя и качественно'
-  },
-  {
-    src: './img/engine.jpg',
-    alt: 'Car 1',
-    title: "Ремонт двигателя",
-    text: 'Качественные запчасти и толковые мотористы восстановят всё',
-    link: './engine'
-  },
-  {
-    src: './img/suspension.jpg',
-    alt: 'Car 2',
-    title: 'Ремонт ходовой',
-    text: 'Если что то стучит - приезжайте посмотрим, захотите - исправим',
-    link: './suspension'
-  },
-  {
-    src: './img/electric.png',
-    alt: 'Car 3',
-    title: 'Ремонт электрики',
-    text: 'Электрики с опытом всегда рады новым вызовам',
-    link: './electric'
-  },
-];
+// const slides = [ ... ] // Удаляем статические слайды
 
 const services = [
   "ТЕХНИЧЕСКОЕ ОБСЛУЖИВАНИЕ И РЕМОНТ",
@@ -53,7 +23,7 @@ const services = [
   "ХИМЧИСТКА, ПОЛИРОВКА, НАНОПОКРЫТИЕ",
   "ЗАПЧАСТИ (ОРИГИНАЛ, АНАЛОГИ)",
   "ЭВАКУАТОР"
-]
+];
 
 const priceLink = [
   {
@@ -116,7 +86,7 @@ const priceLink = [
     link: 'oilsystem',
     textLink: 'Маслянная система'
   },
-]
+];
 
 const newsItems = [
   {
@@ -139,10 +109,37 @@ const newsItems = [
   }
 ];
 
+interface Slide {
+  src: string;
+  alt: string;
+  title: string;
+  text: string;
+  isMap: boolean;
+  link?: string;
+}
+
 const MainPageView: React.FC = () => {
+  const [slides, setSlides] = useState<Slide[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideIntervalRef = useRef<NodeJS.Timeout | null>(null);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
+
+useEffect(() => {
+  const fetchSlides = async () => {
+    try {
+      const response = await fetch('/api/slides');
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      setSlides(data);
+    } catch (error) {
+      console.error('Error fetching slides:', error);
+    }
+  };
+
+  fetchSlides();
+}, []);
 
   const startSlideInterval = () => {
     slideIntervalRef.current = setInterval(() => {
@@ -159,7 +156,7 @@ const MainPageView: React.FC = () => {
   useEffect(() => {
     startSlideInterval();
     return () => clearSlideInterval();
-  }, []);
+  }, [slides.length]);
 
   const prevSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
@@ -206,7 +203,10 @@ const MainPageView: React.FC = () => {
                   ></iframe>
                 </div>
               ) : (
-                <img src={slide.src} alt={slide.alt} />
+                <img
+                    src={slide.src}
+                    alt={slide.alt}
+                  />
               )}
               <div className='slide-text'>
                 <h2>{slide.title}</h2>
@@ -242,7 +242,7 @@ const MainPageView: React.FC = () => {
         <div className='prices'>
           {priceLink.map((priceItem, index) => (
             <Link
-              to={`work-performed#` + priceItem.link}
+              to={`work-performed#${priceItem.link}`}
               className='price-item'
               key={index}
               onMouseEnter={() => setHoverIndex(index)}

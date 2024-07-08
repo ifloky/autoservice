@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
   });
 
   try {
-    const newAppointment = await appointment.save();
+    const newAppointment = await Appointment.save();
     res.status(201).json(newAppointment);
   } catch (err) {
     res.status(400).json({ message: err.message });

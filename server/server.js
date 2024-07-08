@@ -18,9 +18,11 @@ mongoose.connect(process.env.MONGO_URI, {
 const consultationRequests = require('./routes/consultationRequests');
 const appointments = require('./routes/appointments');
 const articles = require('./routes/articles');
+const slides = require('./routes/slides');
 app.use('/api/consultation-requests', consultationRequests);
 app.use('/api/appointments', appointments);
 app.use('/api/articles', articles);
+app.use('/api/slides', slides);
 
 app.use(express.static(path.join(__dirname, '../client/build')));
 
