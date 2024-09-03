@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -19,10 +21,13 @@ const consultationRequests = require('./routes/consultationRequests');
 const appointments = require('./routes/appointments');
 const articles = require('./routes/articles');
 const slides = require('./routes/slides');
+const authRouter = require("./routes/auth");
+
 app.use('/api/consultation-requests', consultationRequests);
 app.use('/api/appointments', appointments);
 app.use('/api/articles', articles);
 app.use('/api/slides', slides);
+app.use('/auth', authRouter);
 
 app.use(express.static(path.join(__dirname, '../client/build')));
 
